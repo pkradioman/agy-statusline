@@ -8,3 +8,6 @@ Thumbs.db
 
 # Antigravity CLI state
 .antigravitycli/
+
+# Temporary files
+temp/
