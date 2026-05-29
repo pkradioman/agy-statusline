@@ -10,7 +10,8 @@
   "files": [
     "statusline.js",
     "setup.js",
-    "README.md"
+    "README.md",
+    "logo.png"
   ],
   "keywords": [
     "antigravity",
