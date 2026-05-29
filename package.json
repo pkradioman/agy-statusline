@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Custom statusline customizer for Antigravity CLI",
   "main": "statusline.js",
+  "logo": "assets/logo.png",
+  "icon": "assets/logo.png",
   "bin": {
     "agy-statusline": "./statusline.js",
     "agy-statusline-setup": "./setup.js"
@@ -10,7 +12,8 @@
   "files": [
     "statusline.js",
     "setup.js",
-    "README.md"
+    "README.md",
+    "assets/logo.png"
   ],
   "keywords": [
     "antigravity",
