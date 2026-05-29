@@ -11,7 +11,8 @@
     "statusline.js",
     "setup.js",
     "README.md",
-    "logo.png"
+    "logo.png",
+    "logo_detailed.png"
   ],
   "keywords": [
     "antigravity",
