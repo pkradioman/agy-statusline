@@ -1,6 +1,6 @@
 {
   "name": "agy-statusline",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Optimized custom statusline implementation for the Antigravity CLI",
   "main": "statusline.js",
   "logo": "assets/logo.png",
@@ -22,8 +22,8 @@
     "release": "commit-and-tag-version"
   },
   "bin": {
-    "agy-statusline": "./statusline.js",
-    "agy-statusline-setup": "./setup.js"
+    "agy-statusline": "statusline.js",
+    "agy-statusline-setup": "setup.js"
   },
   "files": [
     "statusline.js",
