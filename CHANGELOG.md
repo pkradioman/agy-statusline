@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.1](https://github.com/pkradioman/agy-statusline/compare/v1.1.0...v1.1.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* update repository urls to correct github username ([71db112](https://github.com/pkradioman/agy-statusline/commit/71db11284b3f97ed6072ac0b2ca8d792644397b6))
+
 ## 1.1.0 (2026-05-29)
 
 
