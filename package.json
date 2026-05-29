@@ -7,7 +7,7 @@
   "icon": "assets/logo.png",
   "scripts": {
     "prepare": "husky",
-    "test": "node setup.js doctor",
+    "test": "node --test && node setup.js doctor",
     "release": "commit-and-tag-version"
   },
   "bin": {

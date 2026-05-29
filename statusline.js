@@ -2,22 +2,26 @@
 const fs = require('fs');
 const path = require('path');
 
-let inputData = '';
-process.stdin.setEncoding('utf8');
+let timeout;
 
-process.stdin.on('data', (chunk) => {
-    inputData += chunk;
-});
+if (require.main === module) {
+    let inputData = '';
+    process.stdin.setEncoding('utf8');
 
-process.stdin.on('end', () => {
-    renderStatusline(inputData, 'end_event');
-});
+    process.stdin.on('data', (chunk) => {
+        inputData += chunk;
+    });
 
-// To prevent hanging if stdin is not closed or redirected, set a safety timeout.
-const timeout = setTimeout(() => {
-    renderStatusline(inputData, 'timeout');
-    process.exit(0);
-}, 150);
+    process.stdin.on('end', () => {
+        renderStatusline(inputData, 'end_event');
+    });
+
+    // To prevent hanging if stdin is not closed or redirected, set a safety timeout.
+    timeout = setTimeout(() => {
+        renderStatusline(inputData, 'timeout');
+        process.exit(0);
+    }, 150);
+}
 
 function renderStatusline(jsonStr, triggerSource) {
     clearTimeout(timeout);
@@ -152,4 +156,10 @@ function renderStatusline(jsonStr, triggerSource) {
     try {
         fs.appendFileSync(logFile, logEntry, 'utf8');
     } catch(e) {}
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        renderStatusline,
+    };
 }
