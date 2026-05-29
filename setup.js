@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
@@ -11,14 +12,18 @@ if (process.argv.includes('doctor') || process.argv.includes('--doctor')) {
 
 console.log('🚀 Setting up Antigravity statusline...');
 
-// 1. Run bun link to register agy-statusline globally
-try {
-    console.log('🔗 Running "bun link" to register the binary globally...');
-    execSync('bun link', { stdio: 'inherit' });
-    console.log('✅ Registered "agy-statusline" successfully.');
-} catch (error) {
-    console.error('❌ Failed to run "bun link". Make sure Bun is installed globally.');
-    process.exit(1);
+// 1. Run bun link to register agy-statusline globally (if in local repository dev environment)
+let isLocalDev = fs.existsSync(path.join(__dirname, '.git'));
+if (isLocalDev) {
+    try {
+        console.log('🔗 Running "bun link" to register the binary globally...');
+        execSync('bun link', { stdio: 'inherit' });
+        console.log('✅ Registered "agy-statusline" successfully.');
+    } catch (error) {
+        console.warn('⚠️  Failed to run "bun link". Proceeding with settings configuration anyway...');
+    }
+} else {
+    console.log('📦 Running from global package installation, skipping "bun link".');
 }
 
 // 2. Locate settings.json

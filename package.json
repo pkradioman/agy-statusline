@@ -4,7 +4,8 @@
   "description": "Custom statusline customizer for Antigravity CLI",
   "main": "statusline.js",
   "bin": {
-    "agy-statusline": "./statusline.js"
+    "agy-statusline": "./statusline.js",
+    "agy-statusline-setup": "./setup.js"
   },
   "files": [
     "statusline.js",
