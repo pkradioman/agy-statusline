@@ -1,7 +1,7 @@
 # Antigravity Statusline Customizer
 
 <p align="center">
-  <img src="logo_detailed.png" alt="Antigravity Statusline Customizer Logo" width="250" />
+  <img src="logo.png" alt="Antigravity Statusline Customizer Logo" width="250" />
 </p>
 
 Custom statusline implementations for the Antigravity CLI, optimized for performance and visual consistency.
