@@ -117,7 +117,7 @@ test('handles invalid JSON gracefully without crashing', () => {
 
 test('contracts very long directory paths to fit terminal width', () => {
     const mockInput = {
-        cwd: "C:\\Users\\radioman\\Repos\\ai\\agy\\agy-statusline\\src\\components\\statusline\\theme\\utils",
+        cwd: "C:\\Users\\username\\Repos\\ai\\agy\\agy-statusline\\src\\components\\statusline\\theme\\utils",
         model: {
             display_name: "Gemini 3.5 Flash"
         },
@@ -133,7 +133,7 @@ test('contracts very long directory paths to fit terminal width', () => {
         input: JSON.stringify(mockInput),
         env: {
             ...process.env,
-            USERPROFILE: "C:\\Users\\radioman"
+            USERPROFILE: "C:\\Users\\username"
         },
         encoding: 'utf8'
     });
