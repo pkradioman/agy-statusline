@@ -5,13 +5,16 @@ const path = require('path');
 
 const scriptPath = path.join(__dirname, '..', 'statusline.js');
 
-test('renders correct layout with standard inputs', () => {
+test('renders correct layout with standard inputs and spacing padding', () => {
     const mockInput = {
         cwd: "C:\\Users\\username\\workspace",
         model: {
             display_name: "Gemini 3.5 Flash"
         },
-        terminal_width: 80,
+        workspace: {
+            current_dir: "C:\\Users\\username\\workspace"
+        },
+        terminal_width: 150, // Large terminal width to cover padding branch (lines 144-145)
         context_window: {
             total_input_tokens: 50000,
             total_output_tokens: 2000,
@@ -32,6 +35,8 @@ test('renders correct layout with standard inputs', () => {
     assert.match(output, /out 2k/);
     // Check model name
     assert.match(output, /Gemini 3.5 Flash/);
+    // Check that padding spaces are present
+    assert.match(output, /\s{10,}/, 'Output should have spacing padding');
 });
 
 test('dynamic context coloring thresholds', () => {
@@ -71,4 +76,41 @@ test('math rounding & ceiling calculations', () => {
     };
     const zeroOutput = execSync(`node "${scriptPath}"`, { input: JSON.stringify(zeroInput), encoding: 'utf8' });
     assert.match(zeroOutput, /□{20}/);
+});
+
+test('large context window size format (M/MB)', () => {
+    const largeInput = {
+        cwd: "C:\\Users\\username\\workspace",
+        context_window: {
+            context_window_size: 2097152, // 2MB
+            used_percentage: 10
+        }
+    };
+    const output = execSync(`node "${scriptPath}"`, { input: JSON.stringify(largeInput), encoding: 'utf8' });
+    assert.match(output, /of 2M/, 'Output should format context size in millions (M)');
+});
+
+test('fallback to environment variable when stdin is empty', () => {
+    const envMeta = {
+        model: { display_name: "Env Model" },
+        workspace: { current_dir: "C:\\env-dir" }
+    };
+    const output = execSync(`node "${scriptPath}"`, {
+        env: {
+            ...process.env,
+            ANTIGRAVITY_SOURCE_METADATA: JSON.stringify(envMeta)
+        },
+        encoding: 'utf8'
+    });
+    assert.match(output, /Env Model/, 'Output should display model name from env variable');
+    assert.match(output, /env-dir/, 'Output should display current dir from env variable');
+});
+
+test('handles invalid JSON gracefully without crashing', () => {
+    const output = execSync(`node "${scriptPath}"`, {
+        input: "{ invalid json }",
+        encoding: 'utf8'
+    });
+    // Should fallback to default layout and not crash with exit code 1
+    assert.match(output, /Antigravity/, 'Should render default model name on parse error');
 });
