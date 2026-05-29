@@ -1,10 +1,10 @@
-# Antigravity Statusline Customizer
+# Optimized Statusline for Antigravity CLI
 
 <p align="center">
-  <img src="assets/logo.png" alt="Antigravity Statusline Customizer Logo" width="250" />
+  <img src="assets/logo.png" alt="Optimized Statusline for Antigravity CLI Logo" width="250" />
 </p>
 
-Custom statusline implementations for the Antigravity CLI, optimized for performance and visual consistency.
+An optimized custom statusline implementation for the Antigravity CLI, featuring token scaling, dynamic context warnings, and a 20-step progress bar.
 
 ## Features
 
