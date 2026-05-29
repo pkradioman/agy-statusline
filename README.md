@@ -36,9 +36,29 @@ Custom statusline implementations for the Antigravity CLI, optimized for perform
 
 ## Installation & Setup
 
-You can set up the statusline automatically using the included `setup.js` script, which globally links the command and configures your settings.
+### Installation via NPM
 
-### Automatic Installation
+You can install this statusline directly from the npm registry:
+
+1. **Install Globally**:
+   ```bash
+   npm install -g agy-statusline
+   ```
+   *(or `bun install -g agy-statusline` if using Bun)*
+
+2. **Configure Settings**:
+   Open your Antigravity CLI config file located at `~/.gemini/antigravity-cli/settings.json` (or `C:\Users\<username>\.gemini\antigravity-cli\settings.json` on Windows) and set:
+   ```json
+   "statusLine": {
+     "type": "command",
+     "command": "agy-statusline",
+     "enabled": true
+   }
+   ```
+
+### Local Setup & Automatic Installation
+
+If you cloned this repository locally, you can set it up using the included `setup.js` script:
 
 Run the setup script using Bun (or Node.js):
 
@@ -58,9 +78,9 @@ This will automatically:
    }
    ```
 
-### Manual Installation (Alternative)
+### Manual Local Installation (Alternative)
 
-If you prefer manual setup:
+If you prefer manual setup from the local directory:
 1. **Link Globally**: Run `bun link` in the repository folder.
 2. **Configure Settings**: Open your Antigravity CLI config file located at `~/.gemini/antigravity-cli/settings.json` (or `C:\Users\<username>\.gemini\antigravity-cli\settings.json` on Windows), making sure to write without a UTF-8 BOM, and set:
    ```json

@@ -6,6 +6,11 @@
   "bin": {
     "agy-statusline": "./statusline.js"
   },
+  "files": [
+    "statusline.js",
+    "setup.js",
+    "README.md"
+  ],
   "keywords": [
     "antigravity",
     "statusline",
