@@ -1,0 +1,37 @@
+{
+  "cwd": "C:\\Users\\<username>\\workspace",
+  "session_id": "00000000-0000-0000-0000-000000000000",
+  "conversation_id": "00000000-0000-0000-0000-000000000000",
+  "transcript_path": "C:\\Users\\<username>\\.gemini\\antigravity\\brain\\00000000-0000-0000-0000-000000000000\\.system_generated\\logs\\transcript.jsonl",
+  "model": {
+    "id": "Gemini 3.5 Flash (Medium)",
+    "display_name": "Gemini 3.5 Flash (Medium)"
+  },
+  "workspace": {
+    "current_dir": "C:\\Users\\<username>\\workspace",
+    "project_dir": "file:///C:/Users/<username>/workspace"
+  },
+  "version": "1.0.3",
+  "context_window": {
+    "total_input_tokens": 26730,
+    "total_output_tokens": 2313,
+    "context_window_size": 1048576,
+    "used_percentage": 2.5491714477539062,
+    "remaining_percentage": 97.4508285522461,
+    "current_usage": {
+      "input_tokens": 3182,
+      "output_tokens": 309,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 16273
+    }
+  },
+  "exceeds_200k_tokens": false,
+  "product": "antigravity",
+  "agent_state": "working",
+  "sandbox": {
+    "enabled": false
+  },
+  "plan_tier": "Google AI Pro",
+  "email": "user@example.com",
+  "terminal_width": 156
+}

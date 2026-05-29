@@ -1,0 +1,16 @@
+{
+  "name": "agy-statusline",
+  "version": "1.0.0",
+  "description": "Custom statusline customizer for Antigravity CLI",
+  "main": "statusline.js",
+  "bin": {
+    "agy-statusline": "./statusline.js"
+  },
+  "keywords": [
+    "antigravity",
+    "statusline",
+    "customizer"
+  ],
+  "author": "radioman",
+  "license": "MIT"
+}
