@@ -122,3 +122,27 @@ You can run the built-in diagnostic tool to verify that the script is linked, th
 ```bash
 bun setup.js doctor
 ```
+
+---
+
+## Testing & Coverage
+
+This project features a comprehensive test suite written using Node's native test runner to maintain zero external runtime dependencies.
+
+### Run Tests
+
+You can run the full integration test suite (which validates rendering layout, token math, threshold coloring, path contraction, and error fallbacks):
+
+```bash
+npm test
+```
+
+*Note: This command runs both the Node.js test runner and the Doctor diagnostics script, which also runs automatically as a Husky pre-commit hook.*
+
+### Test Coverage Report
+
+To run the tests with a code coverage report (requires Node.js v20+):
+
+```bash
+node --test --experimental-test-coverage
+```

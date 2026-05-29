@@ -12,5 +12,5 @@ Thumbs.db
 # Dependencies
 node_modules/
 
-# Temporary files
+# Temporary files and scripts
 temp/
