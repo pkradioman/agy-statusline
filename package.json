@@ -7,12 +7,12 @@
   "icon": "assets/logo.png",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/radioman/agy-statusline.git"
+    "url": "git+https://github.com/pkradioman/agy-statusline.git"
   },
   "bugs": {
-    "url": "https://github.com/radioman/agy-statusline/issues"
+    "url": "https://github.com/pkradioman/agy-statusline/issues"
   },
-  "homepage": "https://github.com/radioman/agy-statusline#readme",
+  "homepage": "https://github.com/pkradioman/agy-statusline#readme",
   "engines": {
     "node": ">=18.0.0"
   },
