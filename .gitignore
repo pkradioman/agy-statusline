@@ -9,5 +9,8 @@ Thumbs.db
 # Antigravity CLI state
 .antigravitycli/
 
+# Dependencies
+node_modules/
+
 # Temporary files
 temp/
