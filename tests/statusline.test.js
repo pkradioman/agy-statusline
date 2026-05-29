@@ -114,3 +114,33 @@ test('handles invalid JSON gracefully without crashing', () => {
     // Should fallback to default layout and not crash with exit code 1
     assert.match(output, /Antigravity/, 'Should render default model name on parse error');
 });
+
+test('contracts very long directory paths to fit terminal width', () => {
+    const mockInput = {
+        cwd: "C:\\Users\\radioman\\Repos\\ai\\agy\\agy-statusline\\src\\components\\statusline\\theme\\utils",
+        model: {
+            display_name: "Gemini 3.5 Flash"
+        },
+        terminal_width: 100,
+        context_window: {
+            total_input_tokens: 5000,
+            total_output_tokens: 200,
+            context_window_size: 10000,
+            used_percentage: 10
+        }
+    };
+    const output = execSync(`node "${scriptPath}"`, {
+        input: JSON.stringify(mockInput),
+        env: {
+            ...process.env,
+            USERPROFILE: "C:\\Users\\radioman"
+        },
+        encoding: 'utf8'
+    });
+    // The path should be contracted using ... in the middle
+    assert.match(output, /\.\.\./, 'Output path should contain ... to indicate truncation');
+    assert.match(output, /utils/, 'Output path should still contain the leaf directory');
+    // Ensure the total output length is within terminal width
+    const stripAnsi = (str) => str.replace(/\x1b\[[0-9;]*m/g, '');
+    assert.ok(stripAnsi(output).length <= 100, 'Printed status line should fit within terminal width');
+});
